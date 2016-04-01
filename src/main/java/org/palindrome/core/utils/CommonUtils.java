@@ -9,8 +9,13 @@ public class CommonUtils {
         if (null == word) {
             return false;
         }
-        String trimmedString = word.replace(" ", "").toLowerCase();
+        String trimmedString = word.replaceAll(" ", "");
+
+        if (trimmedString.equals("")) {
+            return false;
+        }
+
         String reverseTrimmedString = new StringBuilder(trimmedString).reverse().toString();
-        return trimmedString.equals(reverseTrimmedString);
+        return trimmedString.equalsIgnoreCase(reverseTrimmedString);
     }
 }
