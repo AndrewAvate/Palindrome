@@ -11,14 +11,14 @@ import static org.palindrome.core.utils.CommonUtils.isPalindrome;
 public class CommonUtilsTest {
 
     @Test
-    public void testIsPalindrome() {
+    public void isPalindromeTest() {
         assertEquals("CommonUtils.isPalindrome - palindrome", Boolean.TRUE, isPalindrome("wow"));
         assertEquals("CommonUtils.isPalindrome - not palindrome", Boolean.FALSE, isPalindrome("wov"));
 
         assertEquals("CommonUtils.isPalindrome - palindrome cyrillic phrase", Boolean.TRUE, isPalindrome("а роза упала на лапу Азора"));
         assertEquals("CommonUtils.isPalindrome - no palindrome cyrillic phrase", Boolean.FALSE, isPalindrome("а роза упала на лапу АзорРРа"));
 
-        assertEquals("CommonUtils.isPalindrome - empty", Boolean.TRUE, isPalindrome("   "));
+        assertEquals("CommonUtils.isPalindrome - empty", Boolean.FALSE, isPalindrome("   "));
         assertEquals("CommonUtils.isPalindrome - null", Boolean.FALSE, isPalindrome(null));
 
     }
