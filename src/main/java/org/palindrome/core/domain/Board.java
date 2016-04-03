@@ -28,17 +28,16 @@ public class Board {
     }
 
     synchronized void updateChampions(Player player) {
-        if (champions.contains(player))
-            return;
+        if (!champions.contains(player)) {
+            champions.add(player);
+            if (champions.size() > SIZE) {
+                champions = champions.subList(0, SIZE);
+            }
+        }
 
-        champions.add(player);
         Collections.sort(champions, (o1, o2) -> {
             return Integer.compare(o2.getScore(), o1.getScore()); //First, the player with the higher score
         });
-
-        if (champions.size() > SIZE) {
-            champions = champions.subList(0, SIZE);
-        }
     }
 
     public synchronized List<Player> getChampions() {
