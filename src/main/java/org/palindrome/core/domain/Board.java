@@ -21,6 +21,10 @@ public class Board {
         dao = DaoManager.getDao();
     }
 
+    /**
+     * Concurrent Board Singleton.
+     * @return instance of the Board
+     */
     public static synchronized Board getInstance() {
         if (instance == null)
             instance = new Board();
@@ -41,10 +45,18 @@ public class Board {
         }
     }
 
+    /**
+     *
+     * @return game's champion list (5 elements), orderd by score.
+     */
     public synchronized List<Player> getChampions() {
         return new ArrayList<>(champions);
     }
 
+    /**
+     * recalculates the list of Champions,
+     * taking into account all the players.
+     */
     public synchronized void recalculate() {
         champions = dao.getPlayers();
         Collections.sort(champions, (o1, o2) -> {

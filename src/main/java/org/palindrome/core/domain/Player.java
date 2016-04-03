@@ -28,6 +28,11 @@ public class Player {
         return score;
     }
 
+    /**
+     * added new palindrome to player's word-set
+     * @param word word
+     * @return true - palindrome was added, false plaindrome wasn't added.
+     */
     public synchronized boolean addPalindrome(String word) {
         if (isPalindrome(word) && !palindromes.contains(word)) {
             score += word.length();

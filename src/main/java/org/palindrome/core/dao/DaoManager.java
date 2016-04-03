@@ -9,6 +9,10 @@ public class DaoManager {
 
     private static IDao instance = null;
 
+    /**
+     * Dao's concurrent singletone.
+     * @return instance of a dao.
+     */
     public static synchronized IDao getDao() {
         if (instance == null)
             instance = new InMemoryDao();

@@ -22,20 +22,33 @@ public class GameFacade {
 
     }
 
+    /**
+     * Concurrent GameFacade Singleton.
+     * @return instance of the GameFacade
+     */
     public static synchronized GameFacade getInstance() {
         if (instance == null)
             instance = new GameFacade();
         return instance;
     }
 
+    /**
+     * Add word to player's word-set.
+     *
+     * @param playerID player id
+     * @param word word
+     * @return true - new palindrome, false - not a palindorme or already exist in a player's word-set.
+     */
     public boolean addWord(int playerID, String word) {
         Player player = dao.getOrCreatePlayer(playerID);
         return player.addPalindrome(word);
     }
 
+    /**
+     * @return game's champion list (5 elements), orderd by score.
+     */
     public List<Player> getChampionsTable() {
             return board.getChampions();
-
     }
 
 

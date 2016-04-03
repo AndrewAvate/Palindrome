@@ -5,6 +5,11 @@ package org.palindrome.core.utils;
  */
 public class CommonUtils {
 
+    /**
+     * Check word for palindrome.
+     * @param word word.
+     * @return true - word is palindrome, false - word is not palindrome.
+     */
     public static boolean isPalindrome(String word) {
         if (null == word) {
             return false;
