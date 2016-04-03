@@ -57,7 +57,8 @@ public class GameFacadeTest {
         assertEquals("Game - addWord 3", 2, game.getChampionsTable().size());
         assertEquals("Game - addWord 3", -1, game.getChampionsTable().indexOf(3));
 
-        game.addWord(3, "wowowowowow");
+        assertEquals("Game - addWord 3", Boolean.TRUE, game.addWord(3, "wowowowowow"));
+        assertEquals("Game - addWord 3", Boolean.FALSE, game.addWord(3, "wowowowowow"));
         assertEquals("Game - addWord 3", 3, game.getChampionsTable().size());
         assertEquals("Game - addWord 3", 11, game.getChampionsTable().get(0).getScore());
         assertEquals("Game - addWord 3", 3, game.getChampionsTable().get(0).getId());

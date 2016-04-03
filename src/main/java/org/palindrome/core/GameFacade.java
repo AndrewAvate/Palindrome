@@ -28,9 +28,9 @@ public class GameFacade {
         return instance;
     }
 
-    public void addWord(int playerID, String word) {
+    public boolean addWord(int playerID, String word) {
         Player player = dao.getOrCreatePlayer(playerID);
-        player.addPalindrome(word);
+        return player.addPalindrome(word);
     }
 
     public List<Player> getChampionsTable() {
